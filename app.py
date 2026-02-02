@@ -34,4 +34,5 @@ def generar_pdfs(n_clicks, carpeta_pdfs):
 def limpiar(n_clicks):
     return "", {'display': 'none'}, ""
 if __name__ == '__main__':
-    app.run_server(debug=False)
+
+    app.run(debug=False)
