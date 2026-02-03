@@ -4,7 +4,7 @@ import pandas as pd
 import fitz
 def cargar_excel(ruta_excel):
     df = pd.read_excel(ruta_excel)
-    df["Fecha"].fillna(method='ffill', inplace=True)
+    df["Fecha"] = df["Fecha"].ffill()
     return df
 def cargar_nombres_pdf(carpeta_pdf):
     return [f.split('.')[0] for f in os.listdir(carpeta_pdf) if f.endswith(".pdf")]
@@ -34,4 +34,5 @@ def procesar_pdfs(df, carpeta_pdfs, ruta_sello, carpeta_salida):
         pdf.save(output_pdf_path)
         pdf.close()
         archivos.append(nom_archivo)
+
     return archivos
